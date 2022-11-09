@@ -112,4 +112,20 @@ arrIcon = [
 		color: 'blue'
 	}
 ];
-console.log(arrIcon)
+const eleCont = document.querySelector('.cont')
+
+let eleScelta = document.querySelector('#icon').value
+eleCont.innerHTML=''
+if (eleScelta =="1"){
+let i
+
+for (let i = 1; i<16 ;i++){
+    const eleSq = document.createElement( 'div');
+	eleSq.classList.add('sq');
+    eleCont.append(eleSq);
+    eleSq.append([i]);
+
+
+}
+
+}
