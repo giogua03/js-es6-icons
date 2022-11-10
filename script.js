@@ -100,15 +100,15 @@ const arrIcons = [
 	{
 		name: 'user-ninja',
 		prefix: 'fa-',
-		type: 'cosa',
+		type: 'user',
 		family: 'fas',
 		color: 'blue',
 	},
 	{
 		name: 'user-secret',
 		prefix: 'fa-',
-		type: 'alien',
-		family: 'fas',
+		type: 'user',
+		family:'fas',
 		color: 'blue',
 	},
 ];
