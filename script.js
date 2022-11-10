@@ -79,7 +79,7 @@ const arrIcons = [
 	{
 		name: 'pepper-hot',
 		prefix: 'fa-',
-		type: 'vegetable',
+		type: 'veg',
 		family: 'fas',
 		color: 'green',
 	},
