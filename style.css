@@ -22,14 +22,15 @@ body {
 
 .header-top {
     font-family: 'Acme', sans-serif;
-    color: rgb(41, 177, 221);;
+    color: blueviolet;
     padding: 10px;
 }
 
 .header-bottom {
-    background-color: rgb(41, 177, 221);
+    background-color:blueviolet;
     color: white;
     padding: 10px;
+    color: orange;
 }
 
 .logo h1 {
