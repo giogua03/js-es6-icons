@@ -69,10 +69,11 @@ main {
     flex-basis: calc(20% - 40px);
     margin: 20px;
     padding: 20px;
-    background: rgb(245, 245, 245);
+    background: orange;
     border-radius: 10px;
     text-align: center;
     filter: drop-shadow(1px 1px 1px rgba(0,0,0, 0.5));
+    color: blueviolet;
 }
 
 .box i {
