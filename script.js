@@ -1,131 +1,164 @@
-arrIcon = [
+const arrIcons = [
 	{
 		name: 'cat',
 		prefix: 'fa-',
 		type: 'animal',
 		family: 'fas',
-		color: 'orange'
+		color: 'orange',
 	},
 	{
 		name: 'crow',
 		prefix: 'fa-',
 		type: 'animal',
 		family: 'fas',
-		color: 'orange'
+		color: 'orange',
 	},
 	{
 		name: 'dog',
 		prefix: 'fa-',
 		type: 'animal',
 		family: 'fas',
-		color: 'orange'
+		color: 'orange',
 	},
 	{
 		name: 'dove',
 		prefix: 'fa-',
 		type: 'animal',
 		family: 'fas',
-		color: 'orange'
+		color: 'orange',
 	},
 	{
 		name: 'dragon',
 		prefix: 'fa-',
 		type: 'animal',
 		family: 'fas',
-		color: 'orange'
+		color: 'orange',
 	},
 	{
 		name: 'horse',
 		prefix: 'fa-',
 		type: 'animal',
 		family: 'fas',
-		color: 'orange'
+		color: 'orange',
 	},
 	{
 		name: 'hippo',
 		prefix: 'fa-',
 		type: 'animal',
 		family: 'fas',
-		color: 'orange'
+		color: 'orange',
 	},
 	{
 		name: 'fish',
 		prefix: 'fa-',
 		type: 'animal',
 		family: 'fas',
-		color: 'orange'
+		color: 'orange',
 	},
 	{
 		name: 'carrot',
 		prefix: 'fa-',
-		type: 'vegetable',
+		type: 'fruit',
 		family: 'fas',
-		color: 'green'
+		color: 'green',
 	},
 	{
 		name: 'apple-alt',
 		prefix: 'fa-',
-		type: 'vegetable',
+		type: 'fruit',
 		family: 'fas',
-		color: 'green'
+		color: 'green',
 	},
 	{
 		name: 'lemon',
 		prefix: 'fa-',
 		type: 'vegetable',
 		family: 'fas',
-		color: 'green'
+		color: 'green',
 	},
 	{
 		name: 'pepper-hot',
 		prefix: 'fa-',
 		type: 'vegetable',
 		family: 'fas',
-		color: 'green'
+		color: 'green',
 	},
 	{
 		name: 'user-astronaut',
 		prefix: 'fa-',
 		type: 'user',
 		family: 'fas',
-		color: 'blue'
+		color: 'blue',
 	},
 	{
 		name: 'user-graduate',
 		prefix: 'fa-',
 		type: 'user',
 		family: 'fas',
-		color: 'blue'
+		color: 'blue',
 	},
 	{
 		name: 'user-ninja',
 		prefix: 'fa-',
-		type: 'user',
+		type: 'cosa',
 		family: 'fas',
-		color: 'blue'
+		color: 'blue',
 	},
 	{
 		name: 'user-secret',
 		prefix: 'fa-',
-		type: 'user',
+		type: 'alien',
 		family: 'fas',
-		color: 'blue'
-	}
+		color: 'blue',
+	},
 ];
-const eleCont = document.querySelector('.cont')
 
-let eleScelta = document.querySelector('#icon').value
-eleCont.innerHTML=''
-if (eleScelta =="1"){
-let i
-
-for (let i = 1; i<16 ;i++){
-    const eleSq = document.createElement( 'div');
-	eleSq.classList.add('sq');
-    eleCont.append(eleSq);
-    eleSq.append([i]);
+const eleIconsContainer = document.querySelector('#icons-container');
+const eleSelect = document.querySelector('#type-filter');
 
 
+populateSelect(arrIcons, eleSelect);
+
+renderIcons(arrIcons, eleIconsContainer);
+eleSelect.addEventListener('change', filterIcons);
+
+
+
+
+function renderIcons(arrData, eleContainer) {
+	eleContainer.innerHTML = '';
+	arrData.forEach(objIcon => eleContainer.innerHTML += generateCard(objIcon));
+
+	
 }
 
+function generateCard(objData) {
+	return `
+		<div class="box">
+			<i class="${objData.family} ${objData.prefix}${objData.name}" style="color:${objData.color}"></i>
+			<div class="title">${objData.name}</div>
+		</div>
+	`;
+}
+
+function populateSelect(arrData, eleSelect) {
+	const arrTypes = [];
+	arrData.forEach(objIcon => arrTypes.includes(objIcon.type) ? '' : arrTypes.push(objIcon.type));
+
+	arrTypes.forEach(type => eleSelect.innerHTML += `<option value="${type}">${type}</option>`);
+}
+
+function filterIcons() {
+	const selectedType = this.value; 
+
+	
+	if (selectedType !== '') {
+		arrIconsFiltered = arrIcons.filter(objIcon => objIcon.type === selectedType)
+	} else {
+		arrIconsFiltered = arrIcons;
+	}
+	console.log(arrIconsFiltered);
+
+	
+	renderIcons(arrIconsFiltered, eleIconsContainer);
 }
